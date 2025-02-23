@@ -1,116 +1,145 @@
-import Image from 'next/image';
+import Navbar from "@/components/Navbar/Navbar";
+import ArticleCard from "@/components/ArticleCard/ArticleCard";
+import Footer from "@/components/Footer/Footer";
+import ArticleWork from "@/components/ArticleWork/ArticleWork";
+import SignupWidget from "@/components/WidgetSignup/SignupWidget";
+import ProfileHeader from "@/components/ProfileHeader/ProfileHeader";
+import SkillsWidget from "@/components/SkillsWidget/SkillsWidget";
+import { FaLinkedin, FaGithub, FaXTwitter } from "react-icons/fa6";
+
+const articles = [
+  {
+    title: "Portfolio Home Page",
+    content: "Built using Next.js and Tailwind CSS to showcase my skills and projects. Features a responsive design and dark mode toggle.",
+    link: "#",
+    date: "2023-10-01",
+  },
+  {
+    title: "AI Videos about the Amazon",
+    content: "Educational videos about Amazonian wildlife, created using AI tools to enhance storytelling and engagement.",
+    link: "#",
+    date: "2023-09-15",
+  },
+  {
+    title: "Data Science Projects",
+    content: "Analyzing trends in datasets using Python, pandas, and Matplotlib. Exploring correlations between weather patterns and plant growth.",
+    link: "#",
+    date: "2023-08-20",
+  },
+];
+
+const works = [
+  {
+    name: "Student Supervisor (Bakery)",
+    icon: "/bakery-icon.png", // Replace with a valid path or URL
+    duration: "2 years",
+    content: "Led a team in a bakery setting, ensuring efficient operations and customer satisfaction. Developed leadership and teamwork skills.",
+  },
+  {
+    name: "Freelance Web Developer",
+    icon: "/web-dev-icon.png", // Replace with a valid path or URL
+    duration: "1 year",
+    content: "Built responsive websites using Next.js and Tailwind CSS. Focused on user-friendly and data-driven solutions.",
+  },
+  {
+    name: "AI Video Creator",
+    icon: "/ai-icon.png", // Replace with a valid path or URL
+    duration: "Ongoing",
+    content: "Creating educational videos about Amazonian wildlife using AI tools. Aiming to inspire and inform audiences about biodiversity.",
+  },
+];
+
+const skills = [
+  {
+    name: "Python",
+    proficiency: 80,
+    icon: "/python-icon.png", // Replace with a valid path or URL
+    content: "Proficient in data analysis, machine learning, and automation using Python.",
+  },
+  {
+    name: "JavaScript",
+    proficiency: 70,
+    icon: "/js-icon.png", // Replace with a valid path or URL
+    content: "Experienced in building dynamic, responsive web applications using JavaScript.",
+  },
+  {
+    name: "Next.js",
+    proficiency: 75,
+    icon: "/nextjs-icon.png", // Replace with a valid path or URL
+    content: "Building modern, server-rendered React applications with Next.js.",
+  },
+  {
+    name: "Tailwind CSS",
+    proficiency: 85,
+    icon: "/tailwind-icon.png", // Replace with a valid path or URL
+    content: "Designing responsive and visually appealing UIs using Tailwind CSS.",
+  },
+];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p
-          className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div
-          className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
+    <div>
+      <Navbar
+        options={[
+          { path: "/", label: "Home" },
+          { path: "/about", label: "About" },
+          { path: "/projects", label: "Projects" },
+          { path: "/contact", label: "Contact" },
+        ]}
+      />
+
+      <div className="profile-section">
+        <ProfileHeader
+          name="Sebastian Gil Vega"
+          bio="Aspiring Data Scientist & Web Developer | Passionate about solving problems through technology and creativity."
+          linkedinUrl="#"
+          imageUrl="/profile-image.png" // Replace with a valid path or URL
+        />
+
+        <div className="social-links">
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin className="social-icon" />
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <FaXTwitter className="social-icon" />
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <FaGithub className="social-icon" />
           </a>
         </div>
       </div>
 
-      <div
-        className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="main-content">
+        <div className="articles-section">
+          {articles.map((article, index) => (
+            <ArticleCard
+              key={index}
+              title={article.title}
+              content={article.content}
+              link={article.link}
+              date={article.date}
+            />
+          ))}
+        </div>
+
+        <aside className="sidebar">
+          <SignupWidget
+            title="Stay Updated"
+            content="Subscribe to receive updates and news about my projects."
+          />
+          <ArticleWork title="Work Experience" items={works} />
+          <SkillsWidget title="Skills" skills={skills} />
+        </aside>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <Footer
+        options={[
+          { path: "/", label: "Home" },
+          { path: "/about", label: "About" },
+          { path: "/projects", label: "Projects" },
+          { path: "/uses", label: "Uses" },
+        ]}
+      />
+    </div>
   );
 }
